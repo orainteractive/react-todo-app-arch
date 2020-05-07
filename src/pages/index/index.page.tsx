@@ -5,7 +5,7 @@ import {receiveTodos, updateTodo} from '../../stores/actions/todo.action';
 import './index.page.scss';
 
 class IndexPage extends React.Component<any, any> {
-    async componentDidMount() {
+    componentDidMount(): void {
         this.props.receiveTodos();
     }
 
@@ -28,7 +28,7 @@ class IndexPage extends React.Component<any, any> {
                         ? <div className={"row"}>
                             {todos.map((todo: any) => (
                                 <div key={todo.id} className={"d-flex justify-between col-lg-4 mb-3 col-md-12"}>
-                                    <div className={"todo-card card w-100"} key={todo.id}>
+                                    <div className={"todo-card card w-100"} key={todo.id} data-testid={`todo-${todo.id}`}>
                                         <div className={"card-body inner-padding"}>
                                             <div className="row h-100">
                                                 <div className={`col-2 d-flex align-items-center justify-content-center ${todo.attributes.is_completed ? 'bg-success' : 'bg-light'}`}>
@@ -51,7 +51,6 @@ class IndexPage extends React.Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state);
     return {
         todos: state.todosReducer
     };

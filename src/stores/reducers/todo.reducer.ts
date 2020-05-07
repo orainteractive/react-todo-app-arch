@@ -1,12 +1,12 @@
-import {DELETE_TODO, RECEIVE_TODOS, UPDATE_TODO} from "../actions/todo.action";
+import {RECEIVE_TODOS, UPDATE_TODO} from "../actions/todo.action";
 
 const initialState = {
     todos: []
 };
 
 interface ActionInterface {
-    todos: any[],
-    todo: object,
+    todos?: any[],
+    todo?: object,
     type: string,
 }
 
